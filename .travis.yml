@@ -6,4 +6,5 @@ install:
   - dnvm upgrade
   - dnu restore
 script:
+  - cd /test
   - dnx . test -parallel none
