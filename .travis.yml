@@ -6,5 +6,4 @@ install:
   - dnvm upgrade
   - dnu restore
 script:
-  - cd /test
   - dnx /home/travis/build/anuraj/ASPNET5CIDemo/test/project.json test -parallel none
