@@ -7,4 +7,4 @@ install:
   - dnu restore
 script:
   - cd /test
-  - dnx . test -parallel none
+  - dnx /home/travis/build/anuraj/ASPNET5CIDemo/test/project.json test -parallel none
