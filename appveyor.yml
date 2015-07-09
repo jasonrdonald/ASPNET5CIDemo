@@ -6,8 +6,11 @@ build_script:
 - C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd restore
 test_script:
 - C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
+artifacts:
+- path: C:\projects\aspnet5cidemo\src\EmployeeApp\bin\output\*
+  name: myapp
 before_deploy:
-- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd publish C:\projects\aspnet5cidemo\src\EmployeeApp\ --configuration Release
+- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd publish --configuration Release
 deploy:
 - provider: FTP
   host: 
@@ -17,5 +20,6 @@ deploy:
     secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
   password:
     secure: QdheUgbmDJBBTyvvw5UPEg==
-  folder: /site/
-  artifact: C:\projects\aspnet5cidemo\src\EmployeeApp\bin\output\*
+  folder: /site
+  artifact: 
+  application: myapp
