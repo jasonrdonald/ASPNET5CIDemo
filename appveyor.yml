@@ -17,5 +17,5 @@ deploy:
     secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
   password:
     secure: QdheUgbmDJBBTyvvw5UPEg==
-  folder: /site
+  folder: /site/
   artifact: C:\projects\aspnet5cidemo\src\EmployeeApp\bin\output\*
