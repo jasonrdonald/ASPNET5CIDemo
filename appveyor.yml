@@ -11,14 +11,14 @@ artifacts:
 test_script:
 - C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
 deploy:
-- provider: FTP
-  host: 
-    secure: MYu+lYxH7APbXHBENDhuSxz059Mdugypy0fKEHlv91iZ2wVYM6HHZ+5KrEn4Kw9V
-  protocol: ftp
+- provider: WebDeploy
+  server: 
+    secure: Oo/VZhq9pfkDjL2ij3KtWGq7qQdvkqYoBUrYipAxrGCfFLtKgJzjXMfwKNVey4c/P8ScowY/h3nnSD9B3nxOI647Xr9Zi3FEEoVxwoJte7U=
+  website: 
+    secure: 3ncx3RGVt/3/LIGMAtN79g==
   username: 
-    secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
+    secure: VHtnliksXJA/8h80qhGVhA==
   password:
-    secure: QdheUgbmDJBBTyvvw5UPEg==
-  folder: /site
+    secure: kxx9bP3x1UznwYRxeDeprwBLFIuB79AJPMO93KaA38Jfii+VPx5JVpURccezKRhKm6l5SQ8+GzYFGDnPpIepIA==
+  remove_files: true
   artifact: AppOutput
-  application: aspnet5cidemo
