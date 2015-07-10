@@ -10,7 +10,7 @@ artifacts:
 - path: AppOutput
   name: myapp
 before_deploy:
-- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd publish -o AppOutput --configuration Release
+- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd C:\projects\aspnet5cidemo\src\EmployeeApp\project.json publish -o AppOutput --configuration Release
 deploy:
 - provider: FTP
   host: 
