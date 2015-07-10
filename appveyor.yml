@@ -21,3 +21,4 @@ deploy:
     secure: QdheUgbmDJBBTyvvw5UPEg==
   folder: /site
   artifact: AppOutput
+  application: aspnet5cidemo
