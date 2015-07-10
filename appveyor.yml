@@ -13,7 +13,7 @@ test_script:
 deploy:
 - provider: WebDeploy
   server: 
-    secure: Ci11SsYm+8tfAXkUEgX0yQ0DKjEo7vHdF3PPpN6dhJ/6I2Tw7Y+AbMCINff4SeF3
+    secure: Oo/VZhq9pfkDjL2ij3KtWGq7qQdvkqYoBUrYipAxrGCfFLtKgJzjXMfwKNVey4c/P8ScowY/h3nnSD9B3nxOI647Xr9Zi3FEEoVxwoJte7U=
   website: 
     secure: 3ncx3RGVt/3/LIGMAtN79g==
   username: 
