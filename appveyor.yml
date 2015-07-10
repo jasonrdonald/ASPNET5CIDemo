@@ -13,7 +13,7 @@ test_script:
 deploy:
 - provider: FTP
   host: 
-    secure: UdwCAcFI5EpiHF9g68lvJYhDNAv3uigRGQvlj65Cs2aaytyyrrH6GFXz0H1K4HSKrBpBs1Y5Tk58jbgu9csZAg==
+    secure: MYu+lYxH7APbXHBENDhuSxz059Mdugypy0fKEHlv91iZ2wVYM6HHZ+5KrEn4Kw9V
   protocol: ftp
   username: 
     secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
