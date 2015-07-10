@@ -4,22 +4,17 @@ install:
 build_script:
 - C:\Users\appveyor\.dnx\bin\dnvm.cmd upgrade
 - C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd restore
+- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd publish C:\projects\aspnet5cidemo\src\EmployeeApp\ --configuration Release -o AppOutput
 test_script:
 - C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
-artifacts:
-- path: AppOutput
-  name: myapp
-before_deploy:
-- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd publish C:\projects\aspnet5cidemo\src\EmployeeApp\ --configuration Release -o AppOutput
 deploy:
-- provider: FTP
-  host: 
-    secure: UdwCAcFI5EpiHF9g68lvJYhDNAv3uigRGQvlj65Cs2aaytyyrrH6GFXz0H1K4HSKrBpBs1Y5Tk58jbgu9csZAg==
-  protocol: ftp
+- provider: WebDeploy
+  server: 
+    secure: Ci11SsYm+8tfAXkUEgX0yQ0DKjEo7vHdF3PPpN6dhJ/6I2Tw7Y+AbMCINff4SeF3
+  website: 
+    secure: 3ncx3RGVt/3/LIGMAtN79g==
   username: 
-    secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
+    secure: VHtnliksXJA/8h80qhGVhA==
   password:
-    secure: QdheUgbmDJBBTyvvw5UPEg==
-  folder: /site
-  artifact: 
-  application: myapp
+    secure: kxx9bP3x1UznwYRxeDeprwBLFIuB79AJPMO93KaA38Jfii+VPx5JVpURccezKRhKm6l5SQ8+GzYFGDnPpIepIA==
+  remove_files: true
