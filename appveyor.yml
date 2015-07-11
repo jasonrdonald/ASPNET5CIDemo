@@ -1,13 +1,4 @@
 version: 1.0.{build}
-environment:
-  webdeploy_site: 
-    secure: pP15K2eXqz47Lhylpbi8eA==
-  webdeploy_url:
-    secure: Oo/VZhq9pfkDjL2ij3KtWGq7qQdvkqYoBUrYipAxrGCfFLtKgJzjXMfwKNVey4c/P8ScowY/h3nnSD9B3nxOI647Xr9Zi3FEEoVxwoJte7U=
-  webdeploy_user: 
-    secure: VHtnliksXJA/8h80qhGVhA==
-  webdeploy_password: 
-    secure: kxx9bP3x1UznwYRxeDeprwBLFIuB79AJPMO93KaA38Jfii+VPx5JVpURccezKRhKm6l5SQ8+GzYFGDnPpIepIA==
 install:
 - ps: '&{$Branch=''dev'';iex ((new-object net.webclient).DownloadString(''https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1''))}'
 build_script:
@@ -19,5 +10,14 @@ artifacts:
   name: AppOutput
 test_script:
 - C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
-deploy_script:
-- '"C:\Program Files (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe" -verb:sync -source:contentPath="C:\projects\aspnet5cidemo\AppOutput\" -dest:contentPath="%webdeploy_site%",ComputerName="%webdeploy_url%",UserName="%webdeploy_user%",Password="%webdeploy_password%",AuthType="Basic"'
+deploy:
+- provider: FTP
+  host: 
+    secure: MYu+lYxH7APbXHBENDhuSxz059Mdugypy0fKEHlv91iZ2wVYM6HHZ+5KrEn4Kw9V
+  protocol: ftp
+  username: 
+    secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
+  password:
+    secure: QdheUgbmDJBBTyvvw5UPEg==
+  folder: /
+  artifact: AppOutput
