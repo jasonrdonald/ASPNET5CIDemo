@@ -10,7 +10,7 @@ environment:
   webdeploy_password: 
     secure: kxx9bP3x1UznwYRxeDeprwBLFIuB79AJPMO93KaA38Jfii+VPx5JVpURccezKRhKm6l5SQ8+GzYFGDnPpIepIA==
 build_script:
-- dnvm upgrade
+- dnvm install 1.0.0-beta4
 - dnu restore
 - dnu publish C:\projects\aspnet5cidemo\src\EmployeeApp\ --configuration Release -o AppOutput --no-source
 artifacts:
