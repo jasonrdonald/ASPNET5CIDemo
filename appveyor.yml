@@ -1,5 +1,14 @@
 version: 1.0.{build}
 os: Visual Studio 2015 RC
+environment:
+  webdeploy_site: 
+    secure: 3ncx3RGVt/3/LIGMAtN79g==
+  webdeploy_url:
+    secure: Oo/VZhq9pfkDjL2ij3KtWGq7qQdvkqYoBUrYipAxrGCfFLtKgJzjXMfwKNVey4c/P8ScowY/h3nnSD9B3nxOI647Xr9Zi3FEEoVxwoJte7U=
+  webdeploy_user: 
+    secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
+  webdeploy_password: 
+    secure: kxx9bP3x1UznwYRxeDeprwBLFIuB79AJPMO93KaA38Jfii+VPx5JVpURccezKRhKm6l5SQ8+GzYFGDnPpIepIA==
 build_script:
 - dnvm upgrade
 - dnu restore
@@ -9,14 +18,6 @@ artifacts:
   name: AppOutput
 test_script:
 - dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
-deploy:
-- provider: FTP
-  host: 
-    secure: MYu+lYxH7APbXHBENDhuSxz059Mdugypy0fKEHlv91iZ2wVYM6HHZ+5KrEn4Kw9V
-  protocol: ftp
-  username: 
-    secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
-  password:
-    secure: QdheUgbmDJBBTyvvw5UPEg==
-  folder: /site
-  application: AppOutput
+deploy_script:
+- '"C:\Program Files (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe" -source:IisApp="C:\projects\aspnet5cidemo\AppOutput\wwwroot" -dest:IisApp="ASPNET5CIDemo",ComputerName="%webdeploy_url%",UserName="%webdeploy_user%",Password="%webdeploy_password",IncludeAcls="False",AuthType="Basic" -verb:sync -enableLink:contentLibExtension -enableRule:DoNotDeleteRule -retryAttempts:2'
+ 
