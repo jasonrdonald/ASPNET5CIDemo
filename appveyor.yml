@@ -19,6 +19,5 @@ deploy:
     secure: NTg0x11RXPktiHKnL0z3DdxGmTLBnyOgK97uGzRpqNA=
   password:
     secure: QdheUgbmDJBBTyvvw5UPEg==
-  folder: /
-  artifact: AppOutput
-  application: aspnet5cidemo
+  folder: /site
+  application: AppOutput
