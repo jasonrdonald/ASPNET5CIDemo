@@ -1,15 +1,14 @@
 version: 1.0.{build}
-install:
-- ps: '&{$Branch=''dev'';iex ((new-object net.webclient).DownloadString(''https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1''))}'
+os: Visual Studio 2015 RC
 build_script:
-- C:\Users\appveyor\.dnx\bin\dnvm.cmd upgrade
-- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd restore
-- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnu.cmd publish C:\projects\aspnet5cidemo\src\EmployeeApp\ --configuration Release -o AppOutput --no-source
+- dnvm upgrade
+- dnu restore
+- dnu publish C:\projects\aspnet5cidemo\src\EmployeeApp\ --configuration Release -o AppOutput --no-source
 artifacts:
 - path: /AppOutput
   name: AppOutput
 test_script:
-- C:\Users\appveyor\.dnx\runtimes\dnx-clr-win-x86.1.0.0-beta5\bin\dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
+- dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
 deploy:
 - provider: FTP
   host: 
