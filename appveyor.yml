@@ -19,5 +19,5 @@ artifacts:
 test_script:
 - dnx.exe C:\projects\aspnet5cidemo\test\project.json test -parallel none
 deploy_script:
-- '"C:\Program Files (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe" -verb:sync -source:IisApp="C:\projects\aspnet5cidemo\AppOutput\wwwroot" -dest:IisApp="ASPNET5CIDemo",ComputerName="%webdeploy_url%",UserName="%webdeploy_user%",Password="%webdeploy_password",IncludeAcls="False",AuthType="Basic" -enableLink:contentLibExtension -enableRule:DoNotDeleteRule -retryAttempts:2'
+- '"C:\Program Files (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe" -verb:sync -source:IisApp="C:\projects\aspnet5cidemo\AppOutput\wwwroot" -dest:IisApp="ASPNET5CIDemo",ComputerName="%webdeploy_url%",UserName="%webdeploy_user%",Password="%webdeploy_password%",IncludeAcls="False",AuthType="Basic" -enableLink:contentLibExtension -enableRule:DoNotDeleteRule -retryAttempts:2'
  
